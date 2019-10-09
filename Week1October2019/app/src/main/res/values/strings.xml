@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HelloWorldApp</string>
+    <string name="button_text">Click</string>
+    <string name="text_text">Hello America!</string>
+    <string name="text_text2">Hello again America!</string>
+    <string name="warning">This feature is not supported on your phone!</string>
+</resources>
