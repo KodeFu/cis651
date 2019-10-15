@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/scoretext"
+        android:text="50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"></TextView>
+    <ToggleButton
+        android:id="@+id/disable_snack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/scoretext"
+        app:layout_constraintLeft_toLeftOf="parent"></ToggleButton>
+    <SeekBar
+        android:id="@+id/seedBar"
+        android:max="100"
+        android:progress="50"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@+id/disable_snack"
+        app:layout_constraintBottom_toBottomOf="@+id/disable_snack"
+        app:layout_constraintLeft_toRightOf="@+id/disable_snack"
+        app:layout_constraintRight_toRightOf="parent"></SeekBar>
+    <RadioGroup
+        android:id="@+id/rb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/disable_snack">
+        <RadioButton
+            android:id="@+id/rb_simple"
+            android:checked="true"
+            android:text="Simple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></RadioButton>
+        <RadioButton
+            android:id="@+id/rb_custom"
+            android:text="Custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></RadioButton>
+    </RadioGroup>
+    <Button
+        android:id="@+id/createToast"
+        app:layout_constraintTop_toBottomOf="@id/rb"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="TOAST"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="createToast"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
