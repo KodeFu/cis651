@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTask1(View view) {
+        setContentView(R.layout.activity_task1);
     }
 
     public void onTask2(View view) {
