@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,4 +30,45 @@ public class MainActivity extends AppCompatActivity {
 
     public void onTask4(View view) {
     }
+
+    public void onTask0ButtonClicked(View view) {
+        Integer id = view.getId();
+        Button button = null;
+
+        switch (id) {
+            case R.id.task0button1:
+                button = findViewById(R.id.task0button1);
+                break;
+            case R.id.task0button2:
+                button = findViewById(R.id.task0button2);
+                break;
+            case R.id.task0button3:
+                button = findViewById(R.id.task0button3);
+                break;
+            case R.id.task0button4:
+                button = findViewById(R.id.task0button4);
+                break;
+            case R.id.task0button5:
+                button = findViewById(R.id.task0button5);
+                break;
+            case R.id.task0button6:
+                button = findViewById(R.id.task0button6);
+                break;
+            case R.id.task0button7:
+                button = findViewById(R.id.task0button7);
+                break;
+            case R.id.task0button8:
+                button = findViewById(R.id.task0button8);
+                break;
+            default:
+                break;
+        }
+
+        Toast toast = Toast.makeText(
+                getApplicationContext(),
+                "\"" + button.getText() + "\" #" + id.toString(),
+                Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
 }

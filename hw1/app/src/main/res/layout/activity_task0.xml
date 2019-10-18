@@ -12,38 +12,48 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/task0button1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_1">
+                android:text="@string/button_1"
+                android:onClick="onTask0ButtonClicked">
             </Button>
             <Button
+                android:id="@+id/task0button2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_2">
+                android:text="@string/button_2"
+                android:onClick="onTask0ButtonClicked">
             </Button>
         </LinearLayout>
         <Button
+            android:id="@+id/task0button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_3">
+            android:text="@string/button_3"
+            android:onClick="onTask0ButtonClicked">
         </Button>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/task0button4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_4">
+                android:text="@string/button_4"
+                android:onClick="onTask0ButtonClicked">
             </Button>
             <Button
+                android:id="@+id/task0button5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_5">
+                android:text="@string/button_5"
+                android:onClick="onTask0ButtonClicked">
             </Button>
         </LinearLayout>
         <LinearLayout
@@ -51,22 +61,28 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/task0button6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_6">
+                android:text="@string/button_6"
+                android:onClick="onTask0ButtonClicked">
             </Button>
             <Button
+                android:id="@+id/task0button7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_7">
+                android:text="@string/button_7"
+                android:onClick="onTask0ButtonClicked">
             </Button>
             <Button
+                android:id="@+id/task0button8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_8">
+                android:text="@string/button_8"
+                android:onClick="onTask0ButtonClicked">
             </Button>
         </LinearLayout>
     </LinearLayout>
