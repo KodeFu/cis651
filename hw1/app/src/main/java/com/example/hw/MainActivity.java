@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTask0(View view) {
+        setContentView(R.layout.activity_task0);
     }
 
     public void onTask1(View view) {
