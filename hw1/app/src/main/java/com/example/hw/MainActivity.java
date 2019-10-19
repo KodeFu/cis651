@@ -211,5 +211,12 @@ public class MainActivity extends AppCompatActivity  {
         Log.d("ActivityLifeCycle", "onRestart called");
         super.onRestart();
     }
-    
+
+    public void onImageClick(View view) {
+        SeekBar seekBar = findViewById(R.id.seekBar);
+
+        seekBar.setProgress(50);
+
+    }
+
 }
