@@ -1,8 +1,11 @@
 package com.example.hw;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -121,4 +124,45 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        Log.d("ActivityLifeCycle", "onCreate called");
+        super.onCreate(savedInstanceState, persistentState);
+    }
+
+    @Override
+    protected void onStart() {
+        Log.d("ActivityLifeCycle", "onStart called");
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d("ActivityLifeCycle", "onResume called");
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d("ActivityLifeCycle", "onPause called");
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d("ActivityLifeCycle", "onStop called");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d("ActivityLifeCycle", "onDestroy called");
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.d("ActivityLifeCycle", "onRestart called");
+        super.onRestart();
+    }
 }
