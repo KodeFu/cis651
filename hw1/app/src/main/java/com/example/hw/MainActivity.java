@@ -61,6 +61,30 @@ public class MainActivity extends AppCompatActivity {
             case R.id.task0button8:
                 button = findViewById(R.id.task0button8);
                 break;
+            case R.id.task1Button1:
+                button = findViewById(R.id.task1Button1);
+                break;
+            case R.id.task1Button2:
+                button = findViewById(R.id.task1Button2);
+                break;
+            case R.id.task1Button3:
+                button = findViewById(R.id.task1Button3);
+                break;
+            case R.id.task1Button4:
+                button = findViewById(R.id.task1Button4);
+                break;
+            case R.id.task1Button5:
+                button = findViewById(R.id.task1Button5);
+                break;
+            case R.id.task1Button6:
+                button = findViewById(R.id.task1Button6);
+                break;
+            case R.id.task1Button7:
+                button = findViewById(R.id.task1Button7);
+                break;
+            case R.id.task1Button8:
+                button = findViewById(R.id.task1Button8);
+                break;
             default:
                 break;
         }

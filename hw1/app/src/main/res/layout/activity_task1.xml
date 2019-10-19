@@ -4,60 +4,84 @@
 
     <Button
         android:id="@+id/task1Button1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/button_1">
-    </Button>
+        android:layout_alignParentLeft="true"
+        android:text="@string/button_1"
+        android:layout_toLeftOf="@id/placeHolder"
+        android:onClick="onTask0ButtonClicked"
+    />
+    <Button
+        android:id="@+id/placeHolder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:onClick="onTask0ButtonClicked"
+        />
     <Button
         android:id="@+id/task1Button2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_2"
-        android:layout_toRightOf="@id/task1Button1">
-    </Button>
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/placeHolder"
+        android:onClick="onTask0ButtonClicked"
+        />
     <Button
         android:id="@+id/task1Button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_3"
-        android:layout_below="@id/task1Button1">
-    </Button>
+        android:layout_below="@id/task1Button1"
+        android:onClick="onTask0ButtonClicked"
+    />
     <Button
         android:id="@+id/task1Button4"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:text="@string/button_4"
-        android:layout_below="@id/task1Button3">
-    </Button>
+        android:layout_below="@id/task1Button3"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/placeHolder"
+        android:onClick="onTask0ButtonClicked"
+    />
     <Button
         android:id="@+id/task1Button5"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:text="@string/button_5"
         android:layout_below="@id/task1Button3"
-        android:layout_toRightOf="@id/task1Button4">
-    </Button>
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/placeHolder"
+        android:onClick="onTask0ButtonClicked"
+    />
     <Button
         android:id="@+id/task1Button6"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_6"
-        android:layout_below="@id/task1Button4">
-    </Button>
+        android:layout_below="@id/task1Button4"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/task1Button7"
+        android:onClick="onTask0ButtonClicked"
+    />
     <Button
         android:id="@+id/task1Button7"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="@string/button_7"
         android:layout_below="@id/task1Button4"
-        android:layout_toRightOf="@id/task1Button6">
-    </Button>
+        android:layout_centerInParent="true"
+        android:onClick="onTask0ButtonClicked"
+    />
     <Button
         android:id="@+id/task1Button8"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_8"
         android:layout_below="@id/task1Button4"
-        android:layout_toRightOf="@id/task1Button7">
-    </Button>
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/task1Button7"
+        android:onClick="onTask0ButtonClicked"
+    />
 </RelativeLayout>
