@@ -19,6 +19,9 @@ import android.widget.SeekBar;
 import java.util.BitSet;
 import java.util.HashMap;
 
+import com.google.android.material.snackbar.Snackbar;
+
+
 public class MainActivity extends AppCompatActivity  {
 
     MovieData movieData = new MovieData();
@@ -253,6 +256,11 @@ public class MainActivity extends AppCompatActivity  {
             HashMap movieDataItem = movieData.getItem(currentMovieIndex);
             String movieName = (String) movieDataItem.get("name");
 
+            // Snack
+            Snackbar snackbar = Snackbar.make(getWindow().getDecorView().getRootView(),
+                    movieName, Snackbar.LENGTH_LONG);
+            snackbar.show();
+
             // Toast!
             Toast toast = Toast.makeText(
                     getApplicationContext(),
@@ -267,14 +275,15 @@ public class MainActivity extends AppCompatActivity  {
         public void onLongPress(MotionEvent event)
         {
             Log.d("MyGestureListener", "onLongPress called");
+
+            SeekBar seekBar = findViewById(R.id.seekBar);
+            seekBar.setProgress(50);
         }
 
         @Override
         public boolean onDoubleTap(MotionEvent event) {
             Log.d("MyGestureListener", "onDoubleTap called");
 
-            SeekBar seekBar = findViewById(R.id.seekBar);
-            seekBar.setProgress(50);
             return true;
         }
 
