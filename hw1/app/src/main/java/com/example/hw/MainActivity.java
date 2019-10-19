@@ -322,4 +322,8 @@ public class MainActivity extends AppCompatActivity  {
             return true;
         }
     }
+
+    public void GoBack(View view) {
+        setContentView(R.layout.activity_main);
+    }
 }

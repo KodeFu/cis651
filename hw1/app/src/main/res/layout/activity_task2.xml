@@ -97,6 +97,13 @@
         android:drawableLeft="@drawable/search"
         android:onClick="onTask0ButtonClicked"
         />
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Go Back"
+        android:onClick="GoBack"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

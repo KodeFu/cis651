@@ -84,4 +84,11 @@
         android:layout_toRightOf="@id/task1Button7"
         android:onClick="onTask0ButtonClicked"
     />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:text="Go Back"
+        android:onClick="GoBack"
+        />
 </RelativeLayout>
