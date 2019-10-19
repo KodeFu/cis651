@@ -2,10 +2,13 @@ package com.example.hw;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -75,6 +78,17 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 Log.d("SeekBar", "onStopTrackingTouch called");
+            }
+        });
+
+        ImageView imageView = findViewById(R.id.imageView);
+
+        mDetector = new GestureDetectorCompat(this, new MyGestureListener());
+        imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                mDetector.onTouchEvent(event);
+                return true;
             }
         });
     }
@@ -212,11 +226,44 @@ public class MainActivity extends AppCompatActivity  {
         super.onRestart();
     }
 
-    public void onImageClick(View view) {
-        SeekBar seekBar = findViewById(R.id.seekBar);
+    // Gesture detector
+    private GestureDetectorCompat mDetector;
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onSingleTapConfirmed (MotionEvent e)
+        {
+            Log.d("MyGestureListener", "onSingleTapConfirmed called");
+            return true;
+        }
 
-        seekBar.setProgress(50);
+        @Override
+        public void onLongPress(MotionEvent event)
+        {
+            Log.d("MyGestureListener", "onLongPress called");
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent event) {
+            Log.d("MyGestureListener", "onDoubleTap called");
+
+            SeekBar seekBar = findViewById(R.id.seekBar);
+            seekBar.setProgress(50);
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            Log.d("MyGestureListener", "onFling called");
+            if (event1.getX() < event2.getX()) {
+                Log.d("MyGestureListener", "onFling right");
+            }
+            else {
+                Log.d("MyGestureListener", "onFling left");
+            }
+
+            return true;
+        }
 
     }
-
 }
