@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -15,7 +16,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.SeekBar;
 
+import java.util.BitSet;
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity  {
+
+    MovieData movieData = new MovieData();
+    int currentMovieIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,9 @@ public class MainActivity extends AppCompatActivity  {
     public void onTask3(View view) {
         // Have to create view before trying to get element and add listeners
         setContentView(R.layout.activity_task3);
+
+        // Initialize currentMovieIndex
+        currentMovieIndex = 0;
 
         // Get seekbar and add listener for changed event
         SeekBar sb = findViewById(R.id.seekBar);
@@ -91,6 +101,11 @@ public class MainActivity extends AppCompatActivity  {
                 return true;
             }
         });
+
+        // Get some movie data, populate first item
+        HashMap movieDataItem = movieData.getItem(0);
+        int movieResourceId = (int) movieDataItem.get("image");
+        imageView.setImageResource(movieResourceId);
     }
 
     public void onTask4(View view) {
@@ -254,16 +269,36 @@ public class MainActivity extends AppCompatActivity  {
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2,
                                float velocityX, float velocityY) {
+
+            // Get some movie data, populate first item
+            ImageView imageView = findViewById(R.id.imageView);
+
             Log.d("MyGestureListener", "onFling called");
             if (event1.getX() < event2.getX()) {
                 Log.d("MyGestureListener", "onFling right");
+
+                if (currentMovieIndex-1 < 0) {
+                    currentMovieIndex = 0;
+                } else {
+                    currentMovieIndex--;
+                }
             }
             else {
                 Log.d("MyGestureListener", "onFling left");
+
+                if (currentMovieIndex+1 > 29) {
+                    currentMovieIndex = 29;
+                } else {
+                    currentMovieIndex++;
+                }
             }
+
+            // Get movie data
+            HashMap movieDataItem = movieData.getItem(currentMovieIndex);
+            int movieResourceId = (int) movieDataItem.get("image");
+            imageView.setImageResource(movieResourceId);
 
             return true;
         }
-
     }
 }
