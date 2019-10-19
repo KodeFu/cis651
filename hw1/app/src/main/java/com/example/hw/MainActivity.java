@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTask2(View view) {
+        setContentView(R.layout.activity_task2);
     }
 
     public void onTask3(View view) {
@@ -84,6 +85,30 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.task1Button8:
                 button = findViewById(R.id.task1Button8);
+                break;
+            case R.id.task2button1:
+                button = findViewById(R.id.task2button1);
+                break;
+            case R.id.task2button2:
+                button = findViewById(R.id.task2button2);
+                break;
+            case R.id.task2button3:
+                button = findViewById(R.id.task2button3);
+                break;
+            case R.id.task2button4:
+                button = findViewById(R.id.task2button4);
+                break;
+            case R.id.task2button5:
+                button = findViewById(R.id.task2button5);
+                break;
+            case R.id.task2button6:
+                button = findViewById(R.id.task2button6);
+                break;
+            case R.id.task2button7:
+                button = findViewById(R.id.task2button7);
+                break;
+            case R.id.task2button8:
+                button = findViewById(R.id.task2button8);
                 break;
             default:
                 break;
