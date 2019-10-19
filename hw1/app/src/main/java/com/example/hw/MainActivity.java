@@ -8,9 +8,11 @@ import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.SeekBar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTask3(View view) {
+        // Have to create view before trying to get element and add listeners
+        setContentView(R.layout.activity_task3);
+
+        // Get seekbar and add listener for changed event
+        SeekBar sb = findViewById(R.id.seekBar);
+        sb.setOnSeekBarChangeListener( new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Log.d("SeekBar", "onProgressChanged called");
+
+                // images are 214x317
+                // minimum is 214x317
+                // middle  is 472x699
+                // maximum is 729x1080
+                // each step max - min
+                //   width 515 / 100 -> 5.15 each step
+                //   height 763 / 100 -> 7.63 each step
+
+                // get current progress value
+                int currentProgress = seekBar.getProgress();
+
+                // Get the imageView
+                ImageView imageView = findViewById(R.id.imageView);
+                imageView.requestLayout();
+                int x = imageView.getLayoutParams().height;
+                int y = imageView.getLayoutParams().width;
+                Log.d("SeekBar", "progress " + currentProgress );
+                Log.d("SeekBar", "height " + y );
+                Log.d("SeekBar", "width " + x);
+                imageView.getLayoutParams().height = 317 + (int) ((float)currentProgress * 7.63);
+                imageView.getLayoutParams().width = 214 + (int) ((float)currentProgress * 5.15);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Log.d("SeekBar", "onStartTrackingTouch called");
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Log.d("SeekBar", "onStopTrackingTouch called");
+            }
+        });
     }
 
     public void onTask4(View view) {
@@ -165,4 +211,5 @@ public class MainActivity extends AppCompatActivity {
         Log.d("ActivityLifeCycle", "onRestart called");
         super.onRestart();
     }
+    
 }
