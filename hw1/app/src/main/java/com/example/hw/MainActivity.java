@@ -248,6 +248,18 @@ public class MainActivity extends AppCompatActivity  {
         public boolean onSingleTapConfirmed (MotionEvent e)
         {
             Log.d("MyGestureListener", "onSingleTapConfirmed called");
+
+            // Get movie data
+            HashMap movieDataItem = movieData.getItem(currentMovieIndex);
+            String movieName = (String) movieDataItem.get("name");
+
+            // Toast!
+            Toast toast = Toast.makeText(
+                    getApplicationContext(),
+                    movieName,
+                    Toast.LENGTH_SHORT);
+            toast.show();
+
             return true;
         }
 
