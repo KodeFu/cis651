@@ -2,6 +2,7 @@ package com.example.lab2october2019;
 
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -9,6 +10,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.RadioButton;
@@ -17,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import java.util.HashMap;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -26,6 +31,10 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
         DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+
+    MovieData movieData = new MovieData();
+    int currentMovieIndex = 0;
+
     private SeekBar seekBar;
     private TextView textView;
     private ToggleButton toggleButton;
@@ -38,6 +47,24 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         textView = findViewById(R.id.scoretext);
         toggleButton = findViewById(R.id.disable_snack);
         seekBar.setOnSeekBarChangeListener(this);
+
+        // Initialize currentMovieIndex
+        currentMovieIndex = 0;
+
+        ImageView imageView = findViewById(R.id.imageView);
+        mDetector = new GestureDetectorCompat(this, new MyGestureListener());
+        imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                mDetector.onTouchEvent(event);
+                return true;
+            }
+        });
+
+        // Get some movie data, populate first item
+        HashMap movieDataItem = movieData.getItem(0);
+        int movieResourceId = (int) movieDataItem.get("image");
+        imageView.setImageResource(movieResourceId);
     }
 
     @Override
@@ -123,5 +150,32 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         final TextView textView = findViewById(R.id.dateTime);
         String date =  textView.getText() + String.valueOf(h) + ":" + String.valueOf(m);
         textView.setText(date);
+    }
+
+    // Gesture detector
+    private GestureDetectorCompat mDetector;
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onDoubleTap(MotionEvent event) {
+            //Log.d("MyGestureListener", "onDoubleTap called");
+
+            // Get some movie data, populate first item
+            ImageView imageView = findViewById(R.id.imageView);
+
+            // Advance the pointer
+            if (currentMovieIndex+1 > 29) {
+                currentMovieIndex = 29;
+            } else {
+                currentMovieIndex++;
+            }
+
+            // Get movie data
+            HashMap movieDataItem = movieData.getItem(currentMovieIndex);
+            int movieResourceId = (int) movieDataItem.get("image");
+            imageView.setImageResource(movieResourceId);
+
+            return true;
+        }
+
     }
 }

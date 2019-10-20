@@ -77,7 +77,6 @@
         android:id="@+id/imageView"
         android:layout_width="472px"
         android:layout_height="699px"
-        android:src="@drawable/alice"
         app:layout_constraintTop_toBottomOf="@id/dateTime"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
