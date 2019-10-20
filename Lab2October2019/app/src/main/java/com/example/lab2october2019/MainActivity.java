@@ -1,11 +1,16 @@
 package com.example.lab2october2019;
 
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -15,7 +20,12 @@ import android.view.ViewGroup;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+import org.w3c.dom.Text;
+
+import java.util.Calendar;
+
+public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
+        DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private SeekBar seekBar;
     private TextView textView;
     private ToggleButton toggleButton;
@@ -81,5 +91,37 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             toast.setView(layout);
             toast.show();
         }
+    }
+
+    public void pickDateTime(View view) {
+        final Calendar calender = Calendar.getInstance();
+        int yy = calender.get(Calendar.YEAR);
+        int mm = calender.get(Calendar.MONTH);
+        int dd = calender.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePicker = new DatePickerDialog(this, this, yy, mm, dd);
+        datePicker.show();
+
+
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        final TextView textView = findViewById(R.id.dateTime);
+        String date =  String.valueOf(month) + "/" + String.valueOf(dayOfMonth) + "/" + String.valueOf(year);
+        textView.setText(date);
+
+        final Calendar calender = Calendar.getInstance();
+        int h = calender.get(Calendar.HOUR_OF_DAY);
+        int m = calender.get(Calendar.MINUTE);
+        TimePickerDialog timePicker = new TimePickerDialog(this, this, h, m, true);
+        timePicker.show();
+
+    }
+
+    public void onTimeSet(TimePicker view, int h, int m) {
+        final TextView textView = findViewById(R.id.dateTime);
+        String date =  textView.getText() + String.valueOf(h) + ":" + String.valueOf(m);
+        textView.setText(date);
     }
 }
