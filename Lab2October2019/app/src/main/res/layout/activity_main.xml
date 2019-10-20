@@ -71,7 +71,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rb"
         android:layout_marginLeft="10dp"
-        android:text="date time"
+        android:hint="Dete Time"
         />
     <ImageView
         android:id="@+id/imageView"

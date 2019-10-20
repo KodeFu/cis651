@@ -6,6 +6,7 @@ import androidx.core.view.GestureDetectorCompat;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     private TextView textView;
     private ToggleButton toggleButton;
     private Integer oldValue = 50;
+    String newDate;
+    String newTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,8 +139,8 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         final TextView textView = findViewById(R.id.dateTime);
-        String date =  String.valueOf(month) + "/" + String.valueOf(dayOfMonth) + "/" + String.valueOf(year);
-        textView.setText(date);
+        newDate =  String.valueOf(month) + "/" + String.valueOf(dayOfMonth) + "/" + String.valueOf(year);
+        //textView.setText(date);
 
         final Calendar calender = Calendar.getInstance();
         int h = calender.get(Calendar.HOUR_OF_DAY);
@@ -149,8 +152,28 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
 
     public void onTimeSet(TimePicker view, int h, int m) {
         final TextView textView = findViewById(R.id.dateTime);
-        String date =  textView.getText() + String.valueOf(h) + ":" + String.valueOf(m);
-        textView.setText(date);
+        newTime = String.format("%02d:%02d", h, m);
+        final String oldDateTime = textView.getText().toString();
+        textView.setText(newDate +  " " + newTime);
+
+        // Show the Snackbar!
+        ImageView imageView = findViewById(R.id.imageView);
+        Snackbar snackbar = Snackbar.make(imageView, "Date Time Set!", Snackbar.LENGTH_LONG)
+                .setAction("UNDO", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // do some undo?
+                        textView.setText(oldDateTime);
+
+                        // Toast!
+                        Toast toast = Toast.makeText(
+                                getApplicationContext(),
+                                "Done",
+                                Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                });
+        snackbar.show();
     }
 
     // Gesture detector
