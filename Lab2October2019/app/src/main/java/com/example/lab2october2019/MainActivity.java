@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     private TextView textView;
     private ToggleButton toggleButton;
     private Integer oldValue = 50;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -159,6 +160,9 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         public boolean onDoubleTap(MotionEvent event) {
             //Log.d("MyGestureListener", "onDoubleTap called");
 
+            // Save old index since we may need to undo
+            final int oldMovieIndex = currentMovieIndex;
+
             // Get some movie data, populate first item
             ImageView imageView = findViewById(R.id.imageView);
 
@@ -172,7 +176,30 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             // Get movie data
             HashMap movieDataItem = movieData.getItem(currentMovieIndex);
             int movieResourceId = (int) movieDataItem.get("image");
+            String movieName = (String) movieDataItem.get("name");
             imageView.setImageResource(movieResourceId);
+
+            // Show the Snackbar!
+            Snackbar snackbar = Snackbar.make(imageView, movieName, Snackbar.LENGTH_LONG)
+                    .setAction("UNDO", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            // do some undo?
+                            ImageView imageView = findViewById(R.id.imageView);
+                            HashMap movieDataItem = movieData.getItem(oldMovieIndex);
+                            int movieResourceId = (int) movieDataItem.get("image");
+                            imageView.setImageResource(movieResourceId);
+                            currentMovieIndex = oldMovieIndex;
+
+                            // Toast!
+                            Toast toast = Toast.makeText(
+                                    getApplicationContext(),
+                                    "Done",
+                                    Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    });
+            snackbar.show();
 
             return true;
         }
