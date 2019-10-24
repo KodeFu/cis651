@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment2">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/address_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address Line 1"/>
+        <EditText
+            android:id="@+id/address_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address_one"
+            android:hint="Address Line 2"/>
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address_two"
+            android:hint="City"/>
+        <EditText
+            android:id="@+id/state"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address_two"
+            android:layout_toRightOf="@id/city"
+            android:hint="State"/>
+        <EditText
+            android:id="@+id/zip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address_two"
+            android:layout_toRightOf="@id/state"
+            android:layout_alignParentRight="true"
+            android:hint="Zip"/>
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/zip"
+            android:layout_alignParentRight="true"
+            android:text="Next"/>
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/zip"
+            android:layout_alignParentLeft="true"
+            android:text="Back"/>
+    </RelativeLayout>
+
+</FrameLayout>

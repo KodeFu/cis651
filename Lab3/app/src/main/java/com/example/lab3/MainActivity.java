@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements FragmentTracker {
     private Fragment1 fragment1 = new Fragment1();
+    private Fragment2 fragment2 = new Fragment2();
     //private GestureDetectorCompat mDetector;
     //private final PersonInfo pi = new PersonInfo();
     private int next = 1;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
 
     @Override
     public void goNext() {
+        loadTheFragment(fragment2);
 
     }
 
