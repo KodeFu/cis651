@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements FragmentTracker {
     private Fragment1 fragment1 = new Fragment1();
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
 
     @Override
     public void fragmentVisible(String s) {
-
+        TextView textView = findViewById(R.id.title);
+        textView.setText(s);
     }
 
     @Override
