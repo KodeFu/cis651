@@ -133,17 +133,19 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
 
     @Override
     public void saveNameAndLastName(String name, String lname) {
-
+        pi.setName(name);
+        pi.setLastname(lname);
     }
 
     @Override
     public void saveCityAndZip(String city, String zip) {
-
+        pi.setCity(city);
+        pi.setZip(zip);
     }
 
     @Override
     public void saveLanguage(String language) {
-
+        pi.setLanguage(language);
     }
 
     @Override
