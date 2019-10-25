@@ -17,7 +17,6 @@ public class Fragment3 extends Fragment {
     private FragmentTracker ft;
     private View v;
     public static final String fragmentTitle="Details Info";
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,6 +28,13 @@ public class Fragment3 extends Fragment {
             @Override
             public void onClick(View view) {
                 ft.goNext();
+            }
+        });
+        Button b_back = v.findViewById(R.id.back_button);
+        b_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ft.goBack();
             }
         });
         return v;

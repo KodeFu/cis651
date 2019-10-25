@@ -15,7 +15,10 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
     private Fragment3 fragment3 = new Fragment3();
     //private GestureDetectorCompat mDetector;
     //private final PersonInfo pi = new PersonInfo();
-    private int next = 1;
+    private int next = 2;
+    private int back = 1;
+
+    PersonInfo pi = new com.example.lab3.PersonInfo();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
         super.onStart();
 
         loadTheFragment(fragment1);
+        next = 2;
+        back = 1;
     }
 
     private void loadTheFragment(Fragment f)
@@ -47,12 +52,55 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
 
     @Override
     public void goNext() {
-        loadTheFragment(fragment2);
+        switch (next) {
+            case 1:
+                loadTheFragment(fragment1);
+                next = 2;
+                back = 1;
+                break;
+            case 2:
+                loadTheFragment(fragment2);
+                next = 3;
+                back = 1;
+                break;
+            case 3:
+                loadTheFragment(fragment3);
+                next = 4;
+                back = 2;
+            case 4:
+                //loadTheFragment(fragment4);
+                //next = 4;
+                //prev = 3;
+            default:
+                break;
+        }
 
     }
 
     @Override
     public void goBack() {
+        switch (back) {
+            case 1:
+                loadTheFragment(fragment1);
+                next = 2;
+                back = 1;
+                break;
+            case 2:
+                loadTheFragment(fragment2);
+                next = 3;
+                back = 1;
+                break;
+            case 3:
+                loadTheFragment(fragment3);
+                next = 4;
+                back = 2;
+            case 4:
+                //loadTheFragment(fragment4);
+                //next = 4;
+                //prev = 3;
+            default:
+                break;
+        }
 
     }
 

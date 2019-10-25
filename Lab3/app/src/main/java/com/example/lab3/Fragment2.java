@@ -30,6 +30,13 @@ public class Fragment2 extends Fragment {
                 ft.goNext();
             }
         });
+        Button b_back = v.findViewById(R.id.back_button);
+        b_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ft.goBack();
+            }
+        });
         return v;
     }
 
