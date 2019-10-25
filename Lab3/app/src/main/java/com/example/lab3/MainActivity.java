@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
             case 1:
                 loadTheFragment(fragment1);
                 next = 2;
-                back = 1;
+                back = 3;
                 break;
             case 2:
                 loadTheFragment(fragment2);
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
                 break;
             case 3:
                 loadTheFragment(fragment3);
-                next = 3;
+                next = 1;
                 back = 2;
             default:
                 break;
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
             case 1:
                 loadTheFragment(fragment1);
                 next = 2;
-                back = 1;
+                back = 3;
                 break;
             case 2:
                 loadTheFragment(fragment2);
@@ -121,12 +121,8 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
                 break;
             case 3:
                 loadTheFragment(fragment3);
-                next = 4;
-                back = 2;
-            case 4:
-                //loadTheFragment(fragment4);
-                //next = 4;
-                //prev = 3;
+                next = 1;
+                back = 2;;
             default:
                 break;
         }
