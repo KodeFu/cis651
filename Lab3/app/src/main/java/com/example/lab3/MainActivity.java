@@ -6,16 +6,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements FragmentTracker {
-    private Fragment1 fragment1 = new Fragment1();
-    private Fragment2 fragment2 = new Fragment2();
-    private Fragment3 fragment3 = new Fragment3();
+    private Fragment2 fragment2;
+    private Fragment1 fragment1;
+    private Fragment3 fragment3;
     private GestureDetectorCompat mDetector;
     private final PersonInfo pi = new PersonInfo();
     private int next = 2;
@@ -44,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fragment1 = new Fragment1();
+        fragment2 = new Fragment2();
+        fragment3 = new Fragment3();
         mDetector = new GestureDetectorCompat(this,new MyGestureListener());
     }
 
@@ -92,12 +98,8 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
                 break;
             case 3:
                 loadTheFragment(fragment3);
-                next = 4;
+                next = 3;
                 back = 2;
-            case 4:
-                //loadTheFragment(fragment4);
-                //next = 4;
-                //prev = 3;
             default:
                 break;
         }
@@ -150,6 +152,9 @@ public class MainActivity extends AppCompatActivity implements FragmentTracker {
 
     @Override
     public void finished() {
-
+        Log.d("xxx", "finished()");
+        Intent i = new Intent(this, SummaryActivity.class );
+        i.putExtra("pi", pi);
+        startActivity(i);
     }
 }

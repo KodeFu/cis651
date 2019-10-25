@@ -39,20 +39,22 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/education"
             android:hint="Language"/>
+
         <Button
             android:id="@+id/next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/language"
             android:layout_alignParentRight="true"
-            android:text="Finish"/>
+            android:text="Finish" />
         <Button
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/language"
             android:layout_alignParentLeft="true"
-            android:text="Back"/>
+            android:text="Back"
+            />
     </RelativeLayout>
 
 </FrameLayout>

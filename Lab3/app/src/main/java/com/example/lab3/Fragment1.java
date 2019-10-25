@@ -51,6 +51,7 @@ public class Fragment1 extends Fragment {
         EditText lname = v.findViewById(R.id.last_name);
         ft.saveNameAndLastName(uname.getText().toString(),
                 lname.getText().toString());
+        v = null;
     }
 
 }

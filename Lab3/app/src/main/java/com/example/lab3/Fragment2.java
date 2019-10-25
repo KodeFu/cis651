@@ -57,5 +57,6 @@ public class Fragment2 extends Fragment {
         EditText city = v.findViewById(R.id.city);
         EditText zip = v.findViewById(R.id.zip);
         ft.saveCityAndZip(city.getText().toString(), zip.getText().toString());
+        v = null;
     }
 }

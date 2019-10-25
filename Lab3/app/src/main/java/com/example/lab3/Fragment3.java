@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ public class Fragment3 extends Fragment {
         b_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ft.goNext();
+                ft.finished();
             }
         });
         Button b_back = v.findViewById(R.id.back_button);
@@ -53,9 +54,12 @@ public class Fragment3 extends Fragment {
 
     @Override
     public void onDetach() {
+        Log.d("xxx1", "onDetach called");
         super.onDetach();
         EditText language = v.findViewById(R.id.language);
         ft.saveLanguage(language.getText().toString());
+        Log.d("xxx2", "onDetach called");
+        v = null;
     }
 
 }
