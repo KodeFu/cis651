@@ -7,23 +7,50 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements FragmentTracker {
     private Fragment1 fragment1 = new Fragment1();
     private Fragment2 fragment2 = new Fragment2();
     private Fragment3 fragment3 = new Fragment3();
-    //private GestureDetectorCompat mDetector;
-    //private final PersonInfo pi = new PersonInfo();
+    private GestureDetectorCompat mDetector;
+    private final PersonInfo pi = new PersonInfo();
     private int next = 2;
     private int back = 1;
 
-    PersonInfo pi = new com.example.lab3.PersonInfo();
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            if (event1.getX() < event2.getX()){
+                //Toast toast = Toast.makeText(MainActivity.this, "Fling right", Toast.LENGTH_SHORT);
+                //toast.show();
+                goBack();
+            }
+            else
+            {
+                //Toast toast = Toast.makeText(MainActivity.this, "Fling left", Toast.LENGTH_SHORT);
+                //toast.show();
+                goNext();
+            }
+            return true;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mDetector = new GestureDetectorCompat(this,new MyGestureListener());
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        mDetector.onTouchEvent(ev);
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override
