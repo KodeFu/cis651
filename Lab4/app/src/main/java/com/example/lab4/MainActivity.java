@@ -1,23 +1,52 @@
 package com.example.lab4;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;;import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    private RecyclerView recycler_view;
+    private MovieData md = new MovieData();
+    private final MyRecyclerAdapter myRecyclerAdapter = new MyRecyclerAdapter(md.getMoviesList());
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar myToolBar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolBar);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        recycler_view = (RecyclerView) findViewById(R.id.mainRecyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        layoutManager.scrollToPosition(0);
+        recycler_view.setLayoutManager(layoutManager);
+        myRecyclerAdapter.setOnItemClickListener(new OnListItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                //Map hashMap = myRecyclerAdapter.getItem(position);
+                //FragmentManager fragmentManager = getSupportFragmentManager();
+            }
+
+            @Override
+            public void onItemLongClick(View v, int position) {
+
+            }
+        });
+        recycler_view.setAdapter(myRecyclerAdapter);
+        recycler_view.setItemAnimator(new DefaultItemAnimator());
+
     }
 
     @Override
