@@ -50,7 +50,15 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onItemLongClick(View v, int position) {
-
+                Map hashMap = myRecyclerAdapter.getItem(position);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                MovieDetailFragment movieDetailFragment = MovieDetailFragment.newInstance((int) hashMap.get("image"),
+                        hashMap.get("name").toString(), hashMap.get("year").toString(),
+                        Float.parseFloat(hashMap.get("rating").toString()), hashMap.get("description").toString());
+                fragmentTransaction.replace(R.id.detailFragment, movieDetailFragment);
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+                fragmentTransaction.commit();
             }
         });
         recycler_view.setAdapter(myRecyclerAdapter);
