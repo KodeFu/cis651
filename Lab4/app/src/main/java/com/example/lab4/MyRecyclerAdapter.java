@@ -102,21 +102,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         holder.movie_name.setText( md_filtered.get(position).get("name").toString() );
         holder.movie_year.setText( md_filtered.get(position).get("year").toString() );
         holder.poster_img.setImageResource(Integer.parseInt( md_filtered.get(position).get("image").toString() ));
-        /*holder.poster_img.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                if (onListItemClickListener!=null)
-                    onListItemClickListener.onItemLongClick(view, position);
-                return true;
-            }
-        });
-        holder.poster_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (onListItemClickListener != null)
-                    onListItemClickListener.onItemClick(view, position);
-            }
-        });*/
     }
 
     @Override

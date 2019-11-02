@@ -7,6 +7,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;;import java.util.Map;
@@ -35,8 +37,15 @@ public class MainActivity extends AppCompatActivity {
         myRecyclerAdapter.setOnItemClickListener(new OnListItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                //Map hashMap = myRecyclerAdapter.getItem(position);
-                //FragmentManager fragmentManager = getSupportFragmentManager();
+                Map hashMap = myRecyclerAdapter.getItem(position);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                MovieDetailFragment movieDetailFragment = MovieDetailFragment.newInstance((int) hashMap.get("image"),
+                        hashMap.get("name").toString(), hashMap.get("year").toString(),
+                        Float.parseFloat(hashMap.get("rating").toString()), hashMap.get("description").toString());
+                fragmentTransaction.replace(R.id.detailFragment, movieDetailFragment);
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+                fragmentTransaction.commit();
             }
 
             @Override
