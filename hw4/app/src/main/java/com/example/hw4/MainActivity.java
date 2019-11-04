@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -64,6 +67,10 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.about_action:
                 Log.d("onOptionsItemSelected", "about");
+                //setContentView(R.layout.viewpager_layout);
+                Intent i = new Intent(this, PagerActivity.class );
+                //i.putExtra("pi", pi);
+                startActivity(i);
                 return true;
             case R.id.task1_action:
                 Log.d("onOptionsItemSelected", "task1");
