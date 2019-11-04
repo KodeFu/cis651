@@ -5,6 +5,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.google.android.material.tabs.TabLayout;
+
 public class PagerActivity extends AppCompatActivity {
     MovieData movieData = new MovieData();
 
@@ -18,5 +20,8 @@ public class PagerActivity extends AppCompatActivity {
         viewPager.setAdapter(pagerAdapter);
         DepthTransformation depthTransformation = new DepthTransformation();
         viewPager.setPageTransformer(true, depthTransformation);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }

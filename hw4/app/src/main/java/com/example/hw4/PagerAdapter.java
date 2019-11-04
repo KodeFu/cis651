@@ -38,4 +38,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return md.getSize();
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return md.getItem(position).get("name").toString();
+    }
 }
