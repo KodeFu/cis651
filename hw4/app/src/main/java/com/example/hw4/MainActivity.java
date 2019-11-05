@@ -68,15 +68,22 @@ public class MainActivity extends AppCompatActivity
             case R.id.about_action:
                 Log.d("onOptionsItemSelected", "about");
                 //setContentView(R.layout.viewpager_layout);
+                //Intent i = new Intent(this, PagerActivity.class );
+                //i.putExtra("pi", pi);
+                //startActivity(i);
+                return true;
+            case R.id.task1_action:
+                Log.d("onOptionsItemSelected", "task1");
+                //setContentView(R.layout.viewpager_layout);
                 Intent i = new Intent(this, PagerActivity.class );
                 //i.putExtra("pi", pi);
                 startActivity(i);
                 return true;
-            case R.id.task1_action:
-                Log.d("onOptionsItemSelected", "task1");
-                return true;
             case R.id.task2_action:
                 Log.d("onOptionsItemSelected", "task2");
+                Intent l = new Intent(this, ListActivity.class );
+                //i.putExtra("pi", pi);
+                startActivity(l);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -91,9 +98,15 @@ public class MainActivity extends AppCompatActivity
                 return true;
             case R.id.drawer_task1_action:
                 Log.d("onNav", "task1");
+                Intent i = new Intent(this, PagerActivity.class );
+                //i.putExtra("pi", pi);
+                startActivity(i);
                 return true;
             case R.id.drawer_task2_action:
                 Log.d("onNav", "task2");
+                Intent l = new Intent(this, ListActivity.class );
+                //i.putExtra("pi", pi);
+                startActivity(l);
                 return true;
             default:
                 drawerLayout.closeDrawer(GravityCompat.START);
