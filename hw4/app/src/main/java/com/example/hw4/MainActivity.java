@@ -67,22 +67,17 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.about_action:
                 Log.d("onOptionsItemSelected", "about");
-                //setContentView(R.layout.viewpager_layout);
-                //Intent i = new Intent(this, PagerActivity.class );
-                //i.putExtra("pi", pi);
-                //startActivity(i);
+                Intent a = new Intent(this, AboutActivity.class );
+                startActivity(a);
                 return true;
             case R.id.task1_action:
                 Log.d("onOptionsItemSelected", "task1");
-                //setContentView(R.layout.viewpager_layout);
                 Intent i = new Intent(this, PagerActivity.class );
-                //i.putExtra("pi", pi);
                 startActivity(i);
                 return true;
             case R.id.task2_action:
                 Log.d("onOptionsItemSelected", "task2");
                 Intent l = new Intent(this, ListActivity.class );
-                //i.putExtra("pi", pi);
                 startActivity(l);
                 return true;
             default:
@@ -95,17 +90,17 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.drawer_about_action:
                 Log.d("onNav", "about");
+                Intent a = new Intent(this, AboutActivity.class );
+                startActivity(a);
                 return true;
             case R.id.drawer_task1_action:
                 Log.d("onNav", "task1");
                 Intent i = new Intent(this, PagerActivity.class );
-                //i.putExtra("pi", pi);
                 startActivity(i);
                 return true;
             case R.id.drawer_task2_action:
                 Log.d("onNav", "task2");
                 Intent l = new Intent(this, ListActivity.class );
-                //i.putExtra("pi", pi);
                 startActivity(l);
                 return true;
             default:
