@@ -5,6 +5,8 @@ import android.view.View;
 
 import androidx.viewpager.widget.ViewPager;
 
+// Neat transformation by D. Kumar.
+// https://github.com/dipanshukr/Viewpager-Transformation/wiki/Depth-Transformation
 public class DepthTransformation implements ViewPager.PageTransformer{
     @Override
     public void transformPage(View page, float position) {
