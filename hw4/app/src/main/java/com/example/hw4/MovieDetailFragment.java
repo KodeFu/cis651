@@ -54,7 +54,8 @@ public class MovieDetailFragment extends Fragment {
         EditText yearText = v.findViewById(R.id.year_text);
         yearText.setText(args.getString("year"));
         RatingBar ratingBar = v.findViewById(R.id.movie_rating);
-        ratingBar.setRating(args.getFloat("rating"));
+        float hello = args.getFloat("rating");
+        ratingBar.setRating(hello);
         TextView descriptionText = v.findViewById(R.id.description);
         descriptionText.setText(args.getString("description"));
         return v;

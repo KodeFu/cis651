@@ -28,7 +28,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         args.putInt("id", (int) movieDataItem.get("image"));
         args.putString("title", (String) movieDataItem.get("name"));
         args.putString("year", (String) movieDataItem.get("year"));
-        args.putDouble("rating", (double) movieDataItem.get("rating"));
+        double rating = (double) movieDataItem.get("rating");
+        float rf = (float) rating;
+        args.putFloat("rating", rf);
         args.putString("description", (String) movieDataItem.get("description"));
         fragment.setArguments(args);
         return fragment;

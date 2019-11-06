@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 
 public class ListFragment extends Fragment {
     public interface OnItemSelectedListener {
-        public void onListItemSelected(View sharedView, int imageResourceID, String title, String year);
+        public void onListItemSelected(View sharedView, int imageResourceID, String title, String year, String desc, float rating);
     }
     OnItemSelectedListener clickListener;
     private MovieData md=new MovieData();

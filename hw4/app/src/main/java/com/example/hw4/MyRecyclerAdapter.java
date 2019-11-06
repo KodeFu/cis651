@@ -96,7 +96,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                     clickListener.onListItemSelected(view,
                             Integer.parseInt(md_filtered.get(position).get("image").toString()),
                             md_filtered.get(position).get("name").toString(),
-                            md_filtered.get(position).get("year").toString());
+                            md_filtered.get(position).get("year").toString(),
+                            md_filtered.get(position).get("description").toString(),
+                            Float.parseFloat(md_filtered.get(position).get("rating").toString()));
             }
         });
     }

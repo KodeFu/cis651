@@ -40,12 +40,15 @@ public class MasterDetail extends AppCompatActivity implements ListFragment.OnIt
     }
 
     @Override
-    public void onListItemSelected(View sharedView, int imageResourceID, String title, String year) {
+    public void onListItemSelected(View sharedView, int imageResourceID, String title, String year, String desc, float rating) {
         Bundle args = new Bundle();
-        args.putInt("img_id", imageResourceID);
-        args.putString("mtitle", title);
-        args.putString("myear", year);
-        Fragment detailFragement = new DetailFragment();
+        args.putInt("id", imageResourceID);
+        args.putString("title", title);
+        args.putString("year", year);
+        args.putString("description", desc);
+        args.putFloat("rating", rating);
+        //Fragment detailFragement = new DetailFragment();
+        Fragment detailFragement = new MovieDetailFragment();
         detailFragement.setArguments(args);
         if (twoPane)
         {
