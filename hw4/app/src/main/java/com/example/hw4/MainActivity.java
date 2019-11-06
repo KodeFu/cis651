@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.task2_action:
                 Log.d("onOptionsItemSelected", "task2");
                 //Intent l = new Intent(this, ListActivity.class );
-                Intent l = new Intent(this, MasterDetailActivity.class );
-                startActivity(l);
+                //Intent l = new Intent(this, MasterDetailActivity.class );
+                //startActivity(l);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.drawer_task2_action:
                 Log.d("onNav", "task2");
                 //Intent l = new Intent(this, ListActivity.class );
-                Intent l = new Intent(this, MasterDetailActivity.class );
-                startActivity(l);
+                //Intent l = new Intent(this, MasterDetailActivity.class );
+                //startActivity(l);
                 return true;
             default:
                 drawerLayout.closeDrawer(GravityCompat.START);
