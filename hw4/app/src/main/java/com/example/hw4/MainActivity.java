@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -77,9 +78,8 @@ public class MainActivity extends AppCompatActivity
                 return true;
             case R.id.task2_action:
                 Log.d("onOptionsItemSelected", "task2");
-                //Intent l = new Intent(this, ListActivity.class );
-                //Intent l = new Intent(this, MasterDetailActivity.class );
-                //startActivity(l);
+                Intent intent = new Intent(this, MasterDetail.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -101,9 +101,8 @@ public class MainActivity extends AppCompatActivity
                 return true;
             case R.id.drawer_task2_action:
                 Log.d("onNav", "task2");
-                //Intent l = new Intent(this, ListActivity.class );
-                //Intent l = new Intent(this, MasterDetailActivity.class );
-                //startActivity(l);
+                Intent intent = new Intent(this, MasterDetail.class);
+                startActivity(intent);
                 return true;
             default:
                 drawerLayout.closeDrawer(GravityCompat.START);
