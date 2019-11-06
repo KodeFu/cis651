@@ -28,9 +28,11 @@ public class ListFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         RecyclerView rv = rootView.findViewById(R.id.mainRecyclerView);
-        StaggeredGridLayoutManager layoutManager =
-                new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
-        layoutManager.setOrientation(LinearLayout.VERTICAL);
+        //StaggeredGridLayoutManager layoutManager =
+        //        new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        //      layoutManager.setOrientation(LinearLayout.VERTICAL);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         layoutManager.scrollToPosition(0);
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(myRecyclerAdapter);

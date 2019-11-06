@@ -15,7 +15,7 @@
         />
     <item
         android:id="@+id/task2_action"
-        android:title="Grid View"
+        android:title="List View"
         android:icon="@drawable/android_icon"
         app:showAsAction="ifRoom"
         />
