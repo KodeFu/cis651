@@ -4,19 +4,19 @@
     <item
         android:id="@+id/about_action"
         android:title="About Me"
-        android:icon="@drawable/android_icon"
+        android:icon="@drawable/ic_aboutme"
         app:showAsAction="ifRoom"
         />
     <item
         android:id="@+id/task1_action"
         android:title="Tabbed View"
-        android:icon="@drawable/android_icon"
+        android:icon="@drawable/ic_tabview"
         app:showAsAction="ifRoom"
         />
     <item
         android:id="@+id/task2_action"
         android:title="List View"
-        android:icon="@drawable/android_icon"
+        android:icon="@drawable/ic_listview"
         app:showAsAction="ifRoom"
         />
 </menu>

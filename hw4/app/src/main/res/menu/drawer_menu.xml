@@ -4,17 +4,17 @@
     <item
         android:id="@+id/drawer_about_action"
         android:title="About Me"
-        android:icon="@drawable/android_icon"
+        android:icon="@drawable/ic_aboutme"
         />
     <item
         android:id="@+id/drawer_task1_action"
         android:title="Tabbed View"
-        android:icon="@drawable/android_icon"
+        android:icon="@drawable/ic_tabview"
         />
     <item
         android:id="@+id/drawer_task2_action"
         android:title="List View"
-        android:icon="@drawable/android_icon"
+        android:icon="@drawable/ic_listview"
         />
     </group>
 </menu>
