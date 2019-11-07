@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:numStars="10"
             android:stepSize="1"
+            android:theme="@style/RatingBar"
             style="@style/Base.Widget.AppCompat.RatingBar.Small" />
     </LinearLayout>
     <TextView

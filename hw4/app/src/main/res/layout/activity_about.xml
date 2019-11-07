@@ -12,13 +12,13 @@
         android:orientation="vertical"
         android:background="@color/Black">
         <ImageView
-            android:layout_width="175dp"
+            android:layout_width="133dp"
             android:layout_height="175dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/movietime">
+            android:src="@drawable/mv">
         </ImageView>
         <TextView
             android:layout_width="wrap_content"
@@ -27,14 +27,14 @@
             android:text="MovieTime Application"
             android:textColor="@color/White"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             >
         </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="This is the single GREATEST Android application ever created by anyone!"
+            android:text="Mudit Vats / CIS651\nSyracuse University"
             android:textStyle="bold|italic"
             android:textColor="@color/White"
             android:layout_gravity="center"
