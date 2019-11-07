@@ -10,40 +10,65 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/Orange">
-        <LinearLayout
+        android:background="@color/Black">
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/movietime">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:text="MovieTime Application"
+            android:textColor="@color/White"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            >
+        </TextView>
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="175dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:src="@drawable/mv">
-            </ImageView>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="32dp"
-                    android:text="Mudit Vats">
-                </TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="32dp"
-                    android:text="CIS651">
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="This is the single GREATEST Android application ever created by anyone!"
+            android:textStyle="bold|italic"
+            android:textColor="@color/White"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="MovieTime stars:\n- This SUPER activity.\n- Pager and Tab View Activity.\n- List View via Master Detail Activity."
+            android:textStyle="bold|italic"
+            android:textColor="@color/White"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Guest starring Recycler View!"
+            android:textStyle="bold|italic"
+            android:textColor="@color/LightSkyBlue"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+        </TextView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

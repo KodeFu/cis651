@@ -2,17 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="190dp"
-    android:background="@drawable/jurassicpark"
+    android:background="@drawable/spotlight"
     android:orientation="vertical"
     >
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="100dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
+        android:layout_above="@id/item1"
         android:layout_marginBottom="10dp"
         android:src="@drawable/popcorn"
         />
@@ -24,7 +24,7 @@
         android:layout_marginLeft="10dp"
         android:text="Movie Time"
         android:textSize="24dp"
-        android:textColor="@color/Orange"
+        android:textColor="@color/White"
         android:layout_above="@id/item2"
         />
     <TextView
@@ -33,9 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Staring navigation drawer!"
+        android:text="With navigation drawer!"
+        android:textStyle="bold|italic"
         android:textSize="20dp"
-        android:textColor="@color/Orange"
+        android:textColor="@color/White"
         android:layout_alignParentBottom="true"
         />
 

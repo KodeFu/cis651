@@ -3,7 +3,7 @@
     <group android:checkableBehavior="single">
     <item
         android:id="@+id/drawer_about_action"
-        android:title="About Me"
+        android:title="About Movie Time"
         android:icon="@drawable/ic_aboutme"
         />
     <item
