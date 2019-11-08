@@ -19,7 +19,7 @@
         android:id="@+id/move_and_rotate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="NextActivity"
+        android:onClick="MoveAndRotate"
         android:text="Move and Rotate"
         />
 
@@ -27,7 +27,7 @@
         android:id="@+id/move_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="NextActivity"
+        android:onClick="MoveBack"
         android:text="Move Back"
         />
 
@@ -35,7 +35,7 @@
         android:id="@+id/fade_out"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="NextActivity"
+        android:onClick="FadeOut"
         android:text="Fade Out"
         />
 
@@ -43,7 +43,7 @@
         android:id="@+id/fade_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="NextActivity"
+        android:onClick="FadeIn"
         android:text="Fade In"
         />
 
@@ -51,8 +51,15 @@
         android:id="@+id/xml_animator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="NextActivity"
+        android:onClick="XMLAnimator"
         android:text="XML Animator"
+        />
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/avatar"
         />
 
 </LinearLayout>
