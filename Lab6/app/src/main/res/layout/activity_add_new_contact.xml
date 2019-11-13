@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".AddNewContact">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/contactName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="First">
-        </EditText>
-        <EditText
-            android:id="@+id/contactLastname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Last">
-        </EditText>
-        <EditText
-            android:id="@+id/contactPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="123-456-7890">
-        </EditText>
-        <Button
-            android:id="@+id/addNewContactButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Contact">
-        </Button>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content"
+        android:text="Add Contact"
+        android:textAlignment="center">
+    </TextView>
+    <EditText
+        android:id="@+id/contactName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First">
+    </EditText>
+    <EditText
+        android:id="@+id/contactLastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last">
+    </EditText>
+    <EditText
+        android:id="@+id/contactPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="123-456-7890">
+    </EditText>
+    <Button
+        android:id="@+id/addNewContactButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Contact">
+    </Button>
+</LinearLayout>
