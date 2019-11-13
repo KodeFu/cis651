@@ -94,7 +94,7 @@ public class MyRecyclerAdapter
 
     private void goToUpdateActivity(long personId) {
         Intent intent = new Intent(mContext, UpdateContact.class);
-        intent.putExtra("CONTACT)ID", personId);
+        intent.putExtra("CONTACT_ID", personId);
         mContext.startActivity(intent);
     }
 
