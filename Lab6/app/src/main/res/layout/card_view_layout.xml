@@ -1,42 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:id="@+id/card_view"
-app:cardBackgroundColor="@android:color/transparent"
-android:layout_width="80dp"
-android:layout_height="wrap_content"
-android:layout_margin="2dp"
-    >
-<RelativeLayout
-    android:layout_gravity="center"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/name_view"
-        android:textSize="10sp"
-        android:hint="Title"
-        android:textColor="#000000"/>
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lastname_view"
-        android:layout_below="@id/name_view"
-        android:textSize="10sp"
-        android:hint="Title"
-        android:textColor="#000000"/>
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/phone_number"
-        android:layout_below="@id/lastname_view"
-        android:textSize="8sp"
-        android:hint="Year"
-        android:textColor="@color/colorPrimaryDark"/>
-</RelativeLayout>
-</androidx.cardview.widget.CardView>
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_view"
+                android:text="Name"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/lastname_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lastname" />
+            <TextView
+                android:id="@+id/phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

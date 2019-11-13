@@ -25,7 +25,7 @@ public class UpdateContact extends AppCompatActivity {
         mUpdateBtn = (Button)findViewById(R.id.updateButton);
         dbHelper = new MyDBHelper(this);
         try {
-            contactId = getIntent().getLongExtra("CONTACT_ID", 1);
+            contactId = getIntent().getLongExtra("CONTACT_ID", -1);
         } catch (Exception e) {
             e.printStackTrace();
         }

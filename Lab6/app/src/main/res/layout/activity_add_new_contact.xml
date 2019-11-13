@@ -32,7 +32,7 @@
             android:id="@+id/addNewContactButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SomeButton">
+            android:text="Add Contact">
         </Button>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
