@@ -19,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:scaleType="center"
-        android:src="@drawable/ic_my_icon"
+        android:src="@drawable/ic_my_icon3"
         android:layout_margin="16dp">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
