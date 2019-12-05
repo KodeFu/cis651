@@ -15,7 +15,8 @@
             android:padding="8dp"
             android:textColor="#222"
             android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:hint="username"/>
         <TextView
             android:id="@+id/user_text"
             android:layout_width="wrap_content"
@@ -23,14 +24,34 @@
             android:layout_below="@id/user_name"
             android:padding="8dp"
             android:textColor="#666"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:hint="user text"/>
+        <TextView
+            android:id="@+id/likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_text"
+            android:padding="8dp"
+            android:textColor="#666"
+            android:textSize="14dp"
+            android:hint="likes"/>
+        <Button
+            android:id="@+id/heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/likes"
+            android:padding="8dp"
+            android:textColor="#666"
+            android:textSize="14dp"
+            android:hint="I like this!"/>
         <TextView
             android:id="@+id/post_time"
-            android:layout_below="@id/user_text"
+            android:layout_below="@id/heart"
             android:layout_alignParentEnd="true"
             android:padding="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="8dp"/>
+            android:textSize="8dp"
+            android:hint="post time"/>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
