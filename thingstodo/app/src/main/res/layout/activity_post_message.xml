@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="UpdateValue"/>
             <Button
-                android:text="Concurrent"
+                android:text="Concurr"
                 android:id="@+id/concurr_button"
                 android:layout_width="0dp"
                 android:layout_weight="1"
