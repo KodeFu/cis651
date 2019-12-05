@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "123593164280",
+    "firebase_url": "https://things-to-do-f3bf1.firebaseio.com",
+    "project_id": "things-to-do-f3bf1",
+    "storage_bucket": "things-to-do-f3bf1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123593164280:android:9a63403a70c927aec6c20d",
+        "android_client_info": {
+          "package_name": "com.example.acer.thingstodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123593164280-97hhve6dh5anba2macign4l71bmbrn9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSY9K1xgH-qusW0xYEec_8P1hS1wOMZ1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123593164280-97hhve6dh5anba2macign4l71bmbrn9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

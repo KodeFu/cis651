@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "929223976451",
+    "firebase_url": "https://thingstodo-682db.firebaseio.com",
+    "project_id": "thingstodo-682db",
+    "storage_bucket": "thingstodo-682db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929223976451:android:0ab4a7bdfaecf741",
+        "android_client_info": {
+          "package_name": "com.app.android.mapgeneral"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929223976451-jog6mvejnunqgbfilf4jb70kc2gfv8s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxx1ZRW8ROA2JpVXbuJDBhobtHNPBpWew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929223976451-jog6mvejnunqgbfilf4jb70kc2gfv8s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929223976451:android:494689cd7e2353e3",
+        "android_client_info": {
+          "package_name": "com.example.acer.remoteconfigandstorage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929223976451-jog6mvejnunqgbfilf4jb70kc2gfv8s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxx1ZRW8ROA2JpVXbuJDBhobtHNPBpWew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929223976451-jog6mvejnunqgbfilf4jb70kc2gfv8s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929223976451:android:1be898f03efc86bb",
+        "android_client_info": {
+          "package_name": "com.example.acer.thingstodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929223976451-2fai4790562p61ffoq3haib5vondv3p7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.acer.thingstodo",
+            "certificate_hash": "dca912fb2b5b94f3419294f53a79e81b493d4908"
+          }
+        },
+        {
+          "client_id": "929223976451-jog6mvejnunqgbfilf4jb70kc2gfv8s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxx1ZRW8ROA2JpVXbuJDBhobtHNPBpWew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929223976451-jog6mvejnunqgbfilf4jb70kc2gfv8s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

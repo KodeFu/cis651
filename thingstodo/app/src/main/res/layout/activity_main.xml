@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.acer.thingstodo.MainActivity">
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".25"/>
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+    <Button
+        android:id="@+id/emailverification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Verification Email"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        android:onClick="SendVerificationEmail"
+        />
+    <Button
+        android:id="@+id/passreset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Password Reset Email"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintLeft_toRightOf="@id/emailverification"
+        android:onClick="SendPassReset"
+        />
+    <Button
+        android:id="@+id/Reg_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:onClick="Register"/>
+    <Button
+        android:id="@+id/login_button"
+        app:layout_constraintLeft_toRightOf="@id/Reg_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:onClick="Login"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
