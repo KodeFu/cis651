@@ -82,6 +82,29 @@ public class PostMessage extends AppCompatActivity implements ClickListener {
                 Toast.makeText(getApplicationContext(), "PostMessage 1", Toast.LENGTH_SHORT).show();
                 Button butt = findViewById(R.id.heart);
                 //if (butt.)
+/*
+                FirebaseAuth mAuth = FirebaseAuth.getInstance().getInstance();
+                FirebaseUser user = mAuth.getCurrentUser();
+
+                //com.example.acer.thingstodo.Post post = data.get(i);
+
+                DatabaseReference mRootReference = FirebaseDatabase.getInstance().getReference();
+
+                DatabaseReference likesRef = mRootReference.child("posts").child("-LvIPUQkVxicwZIY12qG"); //child(post.id);
+
+                Map<String, Object> likeNodes = new HashMap<String, Object>();
+
+                if (butt.getText()=="LIKED") {
+                    likeNodes.put("likes" + "/extra", "no");
+                    butt.setText("NOT LIKED");
+                }
+                else {
+                    likeNodes.put("likes" + "/extra", "yes");
+                    butt.setText("LIKED");
+                }
+                likesRef.updateChildren(likeNodes);
+                */
+
             }
 
             @Override

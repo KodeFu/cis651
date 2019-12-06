@@ -67,14 +67,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 int adapterPosition = getAdapterPosition();
 
                 Button theViewButton = (Button) view;
-                if (theViewButton.getText()=="Not Liked") {
-                    theViewButton.setText("Liked");
-                    //assfunc(adapterPosition, true);
+                if (theViewButton.getText()=="NOT LIKED") {
+                    theViewButton.setText("LIKED");
+                    assfunc(adapterPosition, true);
                 }
                 else
                 {
-                    theViewButton.setText("Not Liked");
-                    //assfunc(adapterPosition, false);
+                    theViewButton.setText("NOT LIKED");
+                    assfunc(adapterPosition, false);
                 }
 //                assfunc(adapterPosition, heartButton.isSelected());
 
@@ -109,6 +109,37 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    boolean isLiked = false;
+
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        String child = ds.getKey();
+                        //Log.d("debug", child);
+                        Log.d("mvdebug", child);
+                        if (child.equals("likes")) {
+                            Log.d("mvdebug", "Got Likes Yo!!!!");
+                            for (DataSnapshot likesChildren : ds.getChildren() )
+                            {
+                                Log.d("mvdebug", likesChildren.getKey());
+                                String likedUser = likesChildren.getKey();
+
+                                FirebaseAuth mAuth = FirebaseAuth.getInstance().getInstance();
+                                FirebaseUser user = mAuth.getCurrentUser();
+
+                                if (likedUser.equals(user.getUid()))
+                                {
+                                    Log.d("mvdebug", "Egads! Got current user");
+
+                                    if (likesChildren.getValue().equals("yes")) {
+                                        Log.d("mvdebug", "Egads! Current user likes this thing!");
+                                        isLiked = true;
+                                    }
+                                }
+                            }
+                        }
+                        //Log.d("debug", ds.getValue(String.class));
+                    }
+
                 String id=dataSnapshot.getKey().toString();
                 int position=-1;
                 for (int i=0; i<data.size(); i++)
@@ -129,6 +160,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     String time=dataSnapshot.child("timestamp").getValue().toString();
                     Long t=Long.parseLong(time);
                     p.time=localDateFormat.format(new Date(t));
+
+                    if (isLiked) {
+                        p.liked = true;
+                    }
+                    else
+                    {
+                        p.liked = false;
+                    }
+
                     data.add(position,p);
                     rv.scrollToPosition(position);
                     RecyclerViewAdapter.this.notifyItemChanged(position);
@@ -175,6 +215,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.uname.setText(data.get(position).un);
         holder.utext.setText(data.get(position).text);
         holder.ptime.setText(data.get(position).time);
+        holder.heartButton.setSelected(data.get(position).liked);
+        if (data.get(position).liked) {
+            holder.heartButton.setText("LIKED");
+        }
+        else
+        {
+            holder.heartButton.setText("NOT LIKED");
+        }
     }
     @Override
     public int getItemCount() {
@@ -202,11 +250,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Map<String, Object> likeNodes = new HashMap<String, Object>();
 
         if (isSelected) {
-            likeNodes.put("likes" + "/extra", "yes");
+            likeNodes.put("likes" + "/" + user.getUid(), "yes");
         }
         else
         {
-            likeNodes.put("likes" + "/extra", "no");
+            likeNodes.put("likes" + "/" + user.getUid(), "no");
         }
 
         likesRef.updateChildren(likeNodes);
