@@ -43,7 +43,7 @@
             android:padding="8dp"
             android:textColor="#666"
             android:textSize="14dp"
-            android:hint="I like this!"/>
+            android:hint="Not Liked"/>
         <TextView
             android:id="@+id/post_time"
             android:layout_below="@id/heart"

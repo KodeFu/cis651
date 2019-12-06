@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,7 +23,17 @@ import com.google.firebase.database.Transaction;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PostMessage extends AppCompatActivity {
+public class PostMessage extends AppCompatActivity implements ClickListener {
+    @Override
+    public void onPositionClicked(int position) {
+        Toast.makeText(this, "onPositionClicked", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onLongClicked(int position) {
+        Toast.makeText(this, "onLongClicked", Toast.LENGTH_SHORT).show();
+    }
+
     public static class Node {
 
         public String value1;
@@ -65,7 +76,19 @@ public class PostMessage extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         layoutManager.scrollToPosition(0);
         rv.setLayoutManager(layoutManager);
-        rva=new RecyclerViewAdapter(this);
+        rva=new RecyclerViewAdapter(this, new ClickListener() {
+            @Override
+            public void onPositionClicked(int position) {
+                Toast.makeText(getApplicationContext(), "PostMessage 1", Toast.LENGTH_SHORT).show();
+                Button butt = findViewById(R.id.heart);
+                //if (butt.)
+            }
+
+            @Override
+            public void onLongClicked(int position) {
+                Toast.makeText(getApplicationContext(), "PostMessage 1", Toast.LENGTH_SHORT).show();
+            }
+        });
         rv.setAdapter(rva);
     }
     public void SetMessage(View view){

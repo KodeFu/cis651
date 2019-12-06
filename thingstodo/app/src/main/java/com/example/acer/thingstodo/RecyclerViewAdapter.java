@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.lang.ref.WeakReference;
+import java.net.PasswordAuthentication;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,19 +37,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     static List<Post> data=new ArrayList<Post>();
     Context contex;
     RecyclerView rv;
-        public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private ClickListener listener = null;
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    //public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView uname;
         public TextView utext;
         public  TextView ptime;
         public Button heartButton;
-        public ViewHolder(View view) {
+        private WeakReference<ClickListener> listenerRef;
+        public ViewHolder(View view, ClickListener listener) {
             super(view);
+            listenerRef = new WeakReference<>(listener);
             uname=(TextView)view.findViewById(R.id.user_name);
             utext=(TextView)view.findViewById(R.id.user_text);
             ptime=(TextView)view.findViewById(R.id.post_time);
-            heartButton=(Button)view.findViewById(R.id.heart);
+            heartButton=(Button) view.findViewById(R.id.heart);
 
-            uname.setOnClickListener(this);
             heartButton.setOnClickListener(this);
         }
 
@@ -54,20 +62,30 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Log.d("mv", "onClick: onClick");
             if (view.getId() == heartButton.getId()) {
                 //Toast.makeText(view.getContext(), "ITEM PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
-                Toast.makeText(view.getContext(), "ITEM PRESSED = " + view.getResources().getResourceName(view.getId()), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(view.getContext(), "ITEM PRESSED = " + view.getResources().getResourceName(view.getId()), Toast.LENGTH_SHORT).show();
 
                 int adapterPosition = getAdapterPosition();
-                assfunc(adapterPosition);
 
-            } else {
-                Toast.makeText(view.getContext(), "ROW PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
+                Button theViewButton = (Button) view;
+                if (theViewButton.getText()=="Not Liked") {
+                    theViewButton.setText("Liked");
+                    //assfunc(adapterPosition, true);
+                }
+                else
+                {
+                    theViewButton.setText("Not Liked");
+                    //assfunc(adapterPosition, false);
+                }
+//                assfunc(adapterPosition, heartButton.isSelected());
+
+                listenerRef.get().onPositionClicked(adapterPosition);
+
             }
-
-            //listenerRef.get().onPositionClicked(getAdapterPosition());
         }
     }
-    public RecyclerViewAdapter(Context _context){
+    public RecyclerViewAdapter(Context _context, ClickListener listener){
         contex=_context;
+        this.listener = listener;
         rv=(RecyclerView)((AppCompatActivity)contex).findViewById(R.id.recycler_view);
         postsRef.addChildEventListener(new ChildEventListener() {
             //s: The key name of sibling location ordered before the new child.
@@ -149,7 +167,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell, parent, false);
-        final ViewHolder view_holder = new ViewHolder(v);
+        final ViewHolder view_holder = new ViewHolder(v, listener);
         return view_holder;
     }
     @Override
@@ -163,7 +181,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return data.size();
     }
 
-    static public void assfunc(int i)
+    static public void assfunc(int i, boolean isSelected)
     {
         FirebaseAuth mAuth = FirebaseAuth.getInstance().getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -171,35 +189,32 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Post post = data.get(i);
 
         DatabaseReference mRootReference = FirebaseDatabase.getInstance().getReference();
+        /*
         DatabaseReference postsRef = mRootReference.child("posts");
         DatabaseReference newPostRef = postsRef.push();
         Map<String, Object> nodes = new HashMap<String, Object>();
         nodes.put(post.id + "/" + user.getUid().toString(), post.id);
         postsRef.updateChildren(nodes);
+        */
 
-        //DatabaseReference likesRef = newPostRef.child("likes");
-        //DatabaseReference likesRef = mRootReference.child("posts").child(post.id).child("likes");
         DatabaseReference likesRef = mRootReference.child("posts").child(post.id);
-        //DatabaseReference newLikeRef = likesRef.push();
+
         Map<String, Object> likeNodes = new HashMap<String, Object>();
-        //likeNodes.put(user.getUid(), "I like it!");
 
-        likeNodes.put("likes" + "/extra", "extra info");
-
-        likesRef.updateChildren(likeNodes);
-
-        /*DatabaseReference likesRef = mRootReference.child("posts").child(user.getUid().toString()).child("likes");
-        Map<String, Object> likesNodes = new HashMap<String, Object>();
-        likesNodes.put(user.getUid().toString(), "i like it!");
-        postsRef.updateChildren(likesNodes);*/
-        /*if (i==0)
-        {
-            nodes.put("-LvG0sGTsIcYeRzWfXFA" + "/stuff", "zero");
+        if (isSelected) {
+            likeNodes.put("likes" + "/extra", "yes");
         }
         else
         {
-            nodes.put("-LvIPUQkVxicwZIY12qG" + "/stuff", "oneyo");
-        }*/
+            likeNodes.put("likes" + "/extra", "no");
+        }
+
+        likesRef.updateChildren(likeNodes);
+
+
+        //DatabaseReference bsRef = mRootReference.child("posts").child(post.id).child("likes").child("extra");
+        //bsRef.getKey("extra");
+        //Log.d("ass", "assfunc: " + bsRef);
 
     }
 
