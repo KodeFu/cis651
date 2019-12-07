@@ -13,4 +13,5 @@ public class Post {
     public String time;
     public String link;
     public boolean liked;
+    public int likesCount;
 }

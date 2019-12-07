@@ -45,6 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public TextView utext;
         public  TextView ptime;
         public Button heartButton;
+        public TextView likes;
         private WeakReference<ClickListener> listenerRef;
         public ViewHolder(View view, ClickListener listener) {
             super(view);
@@ -53,6 +54,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             utext=(TextView)view.findViewById(R.id.user_text);
             ptime=(TextView)view.findViewById(R.id.post_time);
             heartButton=(Button) view.findViewById(R.id.heart);
+            likes=(TextView)view.findViewById(R.id.likes);
 
             heartButton.setOnClickListener(this);
         }
@@ -111,6 +113,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
                     boolean isLiked = false;
+                    int likesCount = 0;
 
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         String child = ds.getKey();
@@ -134,6 +137,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                         Log.d("mvdebug", "Egads! Current user likes this thing!");
                                         isLiked = true;
                                     }
+                                }
+
+                                // count
+                                if (likesChildren.getValue().equals("yes")) {
+                                    likesCount++;
                                 }
                             }
                         }
@@ -168,6 +176,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     {
                         p.liked = false;
                     }
+                    p.likesCount = likesCount;
 
                     data.add(position,p);
                     rv.scrollToPosition(position);
@@ -216,6 +225,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.utext.setText(data.get(position).text);
         holder.ptime.setText(data.get(position).time);
         holder.heartButton.setSelected(data.get(position).liked);
+        String linesCountString = Integer.toString(data.get(position).likesCount);
+        holder.likes.setText(linesCountString);
         if (data.get(position).liked) {
             holder.heartButton.setText("LIKED");
         }
