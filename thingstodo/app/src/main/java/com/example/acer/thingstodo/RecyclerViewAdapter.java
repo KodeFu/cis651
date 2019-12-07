@@ -94,6 +94,43 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             //This will be null for the first child node of a location.
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                boolean isLiked = false;
+                int likesCount = 0;
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String child = ds.getKey();
+                    //Log.d("debug", child);
+                    Log.d("mvdebug", child);
+                    if (child.equals("likes")) {
+                        Log.d("mvdebug", "Got Likes Yo!!!!");
+                        for (DataSnapshot likesChildren : ds.getChildren() )
+                        {
+                            Log.d("mvdebug", likesChildren.getKey());
+                            String likedUser = likesChildren.getKey();
+
+                            FirebaseAuth mAuth = FirebaseAuth.getInstance().getInstance();
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                            if (likedUser.equals(user.getUid()))
+                            {
+                                Log.d("mvdebug", "Egads! Got current user");
+
+                                if (likesChildren.getValue().equals("yes")) {
+                                    Log.d("mvdebug", "Egads! Current user likes this thing!");
+                                    isLiked = true;
+                                }
+                            }
+
+                            // count
+                            if (likesChildren.getValue().equals("yes")) {
+                                likesCount++;
+                            }
+                        }
+                    }
+                    //Log.d("debug", ds.getValue(String.class));
+                }
+
+
                 Post p=new Post();
 
                 p.id=dataSnapshot.getKey().toString();
@@ -103,6 +140,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 String time=dataSnapshot.child("timestamp").getValue().toString();
                 Long t=Long.parseLong(time);
                 p.time=localDateFormat.format(new Date(t));
+
+                if (isLiked) {
+                    p.liked = true;
+                }
+                else
+                {
+                    p.liked = false;
+                }
+                p.likesCount = likesCount;
+
                 data.add(p);
                 rv.scrollToPosition(data.size()-1);
                 RecyclerViewAdapter.this.notifyItemInserted(data.size()-1);
