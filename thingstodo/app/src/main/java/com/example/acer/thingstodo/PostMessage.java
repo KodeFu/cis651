@@ -25,13 +25,8 @@ import java.util.Map;
 
 public class PostMessage extends AppCompatActivity implements ClickListener {
     @Override
-    public void onPositionClicked(int position) {
-        Toast.makeText(this, "onPositionClicked", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onLongClicked(int position) {
-        Toast.makeText(this, "onLongClicked", Toast.LENGTH_SHORT).show();
+    public void onButtonClicked(int position) {
+        Toast.makeText(this, "onButtonClicked", Toast.LENGTH_SHORT).show();
     }
 
     public static class Node {
@@ -78,15 +73,10 @@ public class PostMessage extends AppCompatActivity implements ClickListener {
         rv.setLayoutManager(layoutManager);
         rva=new RecyclerViewAdapter(this, new ClickListener() {
             @Override
-            public void onPositionClicked(int position) {
+            public void onButtonClicked(int position) {
                 Toast.makeText(getApplicationContext(), "PostMessage 1", Toast.LENGTH_SHORT).show();
-                Button butt = findViewById(R.id.heart);
             }
 
-            @Override
-            public void onLongClicked(int position) {
-                Toast.makeText(getApplicationContext(), "PostMessage 1", Toast.LENGTH_SHORT).show();
-            }
         });
         rv.setAdapter(rva);
     }

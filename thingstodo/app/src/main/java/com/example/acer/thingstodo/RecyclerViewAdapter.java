@@ -77,7 +77,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     updateLikes(adapterPosition, false);
                 }
 
-                listenerRef.get().onPositionClicked(adapterPosition);
+                listenerRef.get().onButtonClicked(adapterPosition);
 
             }
         }

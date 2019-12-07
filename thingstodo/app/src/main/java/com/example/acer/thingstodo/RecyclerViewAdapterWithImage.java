@@ -106,7 +106,7 @@ public class RecyclerViewAdapterWithImage extends
                     updateLikes(adapterPosition, false);
                 }
 
-                listenerRef.get().onPositionClicked(adapterPosition);
+                listenerRef.get().onButtonClicked(adapterPosition);
 
             }
         }

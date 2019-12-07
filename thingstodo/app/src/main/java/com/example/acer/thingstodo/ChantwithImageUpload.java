@@ -60,13 +60,7 @@ public class ChantwithImageUpload extends AppCompatActivity {
         rv.setLayoutManager(layoutManager);
         rva=new RecyclerViewAdapterWithImage(this, new ClickListener() {
             @Override
-            public void onPositionClicked(int position) {
-                Toast.makeText(getApplicationContext(), "PostMessage 1", Toast.LENGTH_SHORT).show();
-                Button butt = findViewById(R.id.heart);
-            }
-
-            @Override
-            public void onLongClicked(int position) {
+            public void onButtonClicked(int position) {
                 Toast.makeText(getApplicationContext(), "PostMessage 1", Toast.LENGTH_SHORT).show();
             }
         });
