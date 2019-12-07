@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,14 +69,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Button theViewButton = (Button) view;
                 if (theViewButton.getText()=="NOT LIKED") {
                     theViewButton.setText("LIKED");
-                    assfunc(adapterPosition, true);
+                    updateLikes(adapterPosition, true);
                 }
                 else
                 {
                     theViewButton.setText("NOT LIKED");
-                    assfunc(adapterPosition, false);
+                    updateLikes(adapterPosition, false);
                 }
-//                assfunc(adapterPosition, heartButton.isSelected());
 
                 listenerRef.get().onPositionClicked(adapterPosition);
 
@@ -287,7 +284,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return data.size();
     }
 
-    static public void assfunc(int i, boolean isSelected)
+    static public void updateLikes(int i, boolean isSelected)
     {
         FirebaseAuth mAuth = FirebaseAuth.getInstance().getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -295,14 +292,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Post post = data.get(i);
 
         DatabaseReference mRootReference = FirebaseDatabase.getInstance().getReference();
-        /*
-        DatabaseReference postsRef = mRootReference.child("posts");
-        DatabaseReference newPostRef = postsRef.push();
-        Map<String, Object> nodes = new HashMap<String, Object>();
-        nodes.put(post.id + "/" + user.getUid().toString(), post.id);
-        postsRef.updateChildren(nodes);
-        */
-
         DatabaseReference likesRef = mRootReference.child("posts").child(post.id);
 
         Map<String, Object> likeNodes = new HashMap<String, Object>();
@@ -316,12 +305,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
 
         likesRef.updateChildren(likeNodes);
-
-
-        //DatabaseReference bsRef = mRootReference.child("posts").child(post.id).child("likes").child("extra");
-        //bsRef.getKey("extra");
-        //Log.d("ass", "assfunc: " + bsRef);
-
     }
 
 }
